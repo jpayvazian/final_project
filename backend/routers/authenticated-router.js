@@ -3,15 +3,19 @@ const router = express.Router()
 
 const passportAuthMiddleware = require('../services/passport-auth')
 
-router.get('/room/create', passportAuthMiddleware, (req, res) => {
+router.put('/room', passportAuthMiddleware, (req, res) => {
     res.writeHeader( 400, { 'Content-Type': 'text/plain' })
     res.end("Missing implementation")
 })
-router.get('/room/delete', passportAuthMiddleware, (req, res) => {
+router.delete('/room', passportAuthMiddleware, (req, res) => {
     res.writeHeader( 400, { 'Content-Type': 'text/plain' })
     res.end("Missing implementation")
 })
-router.get('/room/update', passportAuthMiddleware, (req, res) => {
+router.post('/room', passportAuthMiddleware, (req, res) => {
+    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
+    res.end("Missing implementation")
+})
+router.get('/room', passportAuthMiddleware, (req, res) => {
     res.writeHeader( 400, { 'Content-Type': 'text/plain' })
     res.end("Missing implementation")
 })
@@ -21,11 +25,11 @@ router.get('/leaderboard', passportAuthMiddleware, (req, res) => {
     res.end("Missing implementation")
 })
 
-router.get('/user/get', passportAuthMiddleware, (req, res) => {
+router.get('/user', passportAuthMiddleware, (req, res) => {
     res.writeHeader( 400, { 'Content-Type': 'text/plain' })
     res.end("Missing implementation")
 })
-router.get('/user/update', passportAuthMiddleware, (req, res) => {
+router.post('/user', passportAuthMiddleware, (req, res) => {
     res.writeHeader( 400, { 'Content-Type': 'text/plain' })
     res.end("Missing implementation")
 })

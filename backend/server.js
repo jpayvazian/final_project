@@ -12,8 +12,8 @@ const publicRoutes = require('./routers/public-router')
 
 // Set paths + routers
 app.use('/auth', passportRoutes)
-app.use('/', authenticatedRoutes)
-app.use('/public', publicRoutes)
+app.use('/api', authenticatedRoutes)
+app.use('/', publicRoutes)
 
 // Start listening either on a defined port or 3000
 let listener = app.listen(process.env.PORT || 3000, (e) => {
