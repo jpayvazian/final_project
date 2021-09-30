@@ -18,8 +18,19 @@ h2 {
     padding-top: 10px;
 }
 
-button {
+h3 {
+    font-family: 'Besley', sans-serif;
+    padding-left: 10px;
+}
+
+p {
     font-family: 'Rubik', sans-serif;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+button {
+    font-family: 'Raleway', sans-serif;
     font-size: 18px;
     border: none;
     background-color: #8CDAFF;
@@ -44,4 +55,44 @@ button {
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#instructionOverlay {
+    height: 600px;
+    width: 500px;
+    background-color: #EEDCFC;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#host {
+    margin-left: 95px;
+    margin-right: 15px;
+}
+
+.overlay {
+    display: none;
+}
+
+.content {
+    height: 215px;
+    width: 500px;
+    background-color: #EEDCFC;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.contentText {
+    height: 40px;
+    width: 250px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    margin-bottom: 25px;
+}
+
+.back {
+    margin-right: 50px;
 }
