@@ -4,11 +4,18 @@ require('dotenv').config()
 // Import express and setup instance
 const express = require('express')
 const app = express()
+const path = require('path');
 
 // Import the public, private, and authentication routes
-const passportRoutes = require('./routers/passport-router')
-const authenticatedRoutes = require('./routers/authenticated-router')
-const publicRoutes = require('./routers/public-router')
+const passportRoutes = require('./backend/routers/passport-router')
+const authenticatedRoutes = require('./backend/routers/authenticated-router')
+const publicRoutes = require('./backend/routers/public-router')
+
+app.use(express.static(path.join(__dirname,"frontend")));
+
+app.get("/", (request, response) => {
+  response.sendFile(__dirname + "/views/index.html");
+});
 
 // Set paths + routers
 app.use('/auth', passportRoutes)
