@@ -6,16 +6,16 @@ const express = require('express')
 const app = express()
 const path = require('path');
 
+app.use(express.static(path.join(__dirname,"frontend")));
+
+app.get("/", (request, response) => {
+  response.sendFile(__dirname + "/views/login.html");
+});
+
 // Import the public, private, and authentication routes
 const passportRoutes = require('./backend/routers/passport-router')
 const authenticatedRoutes = require('./backend/routers/authenticated-router')
 const publicRoutes = require('./backend/routers/public-router')
-
-app.use(express.static(path.join(__dirname,"frontend")));
-
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/index.html");
-});
 
 // Set paths + routers
 app.use('/auth', passportRoutes)
