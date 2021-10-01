@@ -6,6 +6,10 @@ const express = require('express')
 const app = express()
 const path = require('path');
 
+// Require database services
+const { MongoClient, ObjectId } = require('mongodb');
+const MongoClientService = require('./backend/services/mongodb-service.js')
+
 app.use(express.static(path.join(__dirname,"frontend")));
 
 app.get("/", (request, response) => {
