@@ -12,7 +12,7 @@ const RoomApp = () => {
         //User joining a game will need to enter a valid room key
         const enterClick = () => {
             //Will need to check if there is an existing room with that specific key
-            if({roomkey} == ""){
+            if(roomkey == ""){
                 alert("Please enter a room key")
                 return false
             }
@@ -23,7 +23,7 @@ const RoomApp = () => {
         //User hosting a game will need to create a room key
         const submitClick = () => {
              //Will need to add room key to database
-            if({newroomkey} == ""){
+            if(newroomkey == ""){
                 alert("Enter a valid room key")
                 return false
             }
