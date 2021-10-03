@@ -10,10 +10,11 @@ const path = require('path');
 const { MongoClient, ObjectId } = require('mongodb');
 const MongoClientService = require('./backend/services/mongodb-service.js')
 
-app.use(express.static(path.join(__dirname,"frontend")));
+app.use( express.static( 'build' ) )
+// app.use(express.static(path.join(__dirname,"frontend")));
 
 app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/login.html");
+  response.sendFile(__dirname + "/frontend/login.html");
 });
 
 // Import the public, private, and authentication routes

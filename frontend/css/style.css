@@ -71,7 +71,7 @@ button {
 }
 
 .overlay {
-    display: none;
+    display: block;
 }
 
 .content {
