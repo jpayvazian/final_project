@@ -2,8 +2,7 @@ import React, {useState} from "react";
 
 const RoomApp = () => {
 
-        const [instructionOverlay, setInstructionOverlay] = useState(true)
-        const [waitOverlay, setWaitOverlay] = useState(false)
+        const [instructionOverlay] = useState(true)
 
     return (
         <div className="RoomApp">
@@ -31,17 +30,12 @@ const RoomApp = () => {
                         e.preventDefault()
                         window.location.href='/leaderboard.html';
                     }}>Leaderboard</button>
-                <button id="play">Play</button>
+                <button id="play" onClick= {(e) => {
+                    e.preventDefault()
+                    window.location.href='/game.html';
+                }}>Play</button>
             </div>
         }
-            <div id="waitOverlay" className="overlay">
-            {waitOverlay &&  
-                <div id="waitContents" className="content">
-                    <h2>Waiting Room</h2>
-                    <button id="start">Start</button>
-                </div>
-            }
-            </div>
         </div>
     )
 }
