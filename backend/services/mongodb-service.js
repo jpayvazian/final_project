@@ -19,6 +19,20 @@ exports.getUser = async function(id){
     return db_queryresults
 }
 
+exports.getGitHubUser = async function(id) {
+  return new Promise((resolve, reject) => {
+    collectionUsers.findOne({ githubId : id })
+    .then((data) => {
+      console.log(data)
+      if (data && data._id) {
+        resolve(data)
+      } else {
+        reject()
+      }
+    })
+  })
+}
+
 exports.updateUser = async function(data){
     const db_queryresults = await collectionUsers.updateOne({ _id : ObjectId(data.id)}, {
       $set: {
@@ -27,6 +41,18 @@ exports.updateUser = async function(data){
       }  
     })
     return db_queryresults
+}
+
+exports.createUser = async function(user){
+  return new Promise ((resolve, reject) => {
+    collectionUsers.insertOne({
+      githubId: user.id,
+      username: user.username
+    })
+    .then(data => {
+      resolve(data)
+    })
+  })
 }
 
 exports.getLeaderboard = async function(){
