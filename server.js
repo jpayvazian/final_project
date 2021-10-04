@@ -4,18 +4,21 @@ require('dotenv').config()
 // Import express and setup instance
 const express = require('express')
 const app = express()
-const path = require('path');
-
+const bodyParser = require('body-parser')
+const session = require('express-session')
+const path = require('path')
+const passport = require('passport')
 // Require database services
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb')
 const MongoClientService = require('./backend/services/mongodb-service.js')
 
 app.use( express.static( 'build' ) )
-// app.use(express.static(path.join(__dirname,"frontend")));
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(session({ secret: process.env.cookieKey1, resave: false, saveUninitialized: false }))
 
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/frontend/login.html");
-});
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Import the public, private, and authentication routes
 const passportRoutes = require('./backend/routers/passport-router')
