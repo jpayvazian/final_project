@@ -35,19 +35,19 @@ const GameApp = () => {
       }, [gameOver])
 
       useEffect(() => {
-          if(gameState.appTurn && gameState.appColors.length){
+          if(gameState.appColors.length > 0){
             flashSequence()
           }
-      }, [gameState.appTurn, gameState.appColors.length])
+      }, [gameState.appColors.length])
 
 
     const flashSequence = async () => {
         await delay(1000)
         for (let i = 0; i < gameState.appColors.length; i++) {
-            await delay(1000)
             setFlashValue(gameState.appColors[i])
-            await delay(1000)
+            await delay(500)
             setFlashValue("")
+            await delay(500)
         }
         const colorSequence = [...gameState.appColors]
         setGameState({...gameState, appTurn: false, playerTurn: true, playerColors: colorSequence.reverse() })
