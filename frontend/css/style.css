@@ -29,6 +29,26 @@ p {
     padding-right: 15px;
 }
 
+table {
+    display: flexbox;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+th {
+    font-family: 'Besley', sans-serif;
+    background-color: #77DBDA;
+    padding: 10px 70px;
+    font-weight: unset;
+}
+
+td {
+    padding: 10px 75px;
+    font-family: 'Besley', sans-serif;
+    background-color: #89DACD;
+}
+
 button {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
@@ -58,15 +78,11 @@ button {
 }
 
 #instructionOverlay {
-    height: 600px;
+    height: 550px;
     width: 500px;
     background-color: #EEDCFC;
     margin-left: auto;
     margin-right: auto;
-}
-
-#play {
-    margin-left: 180px;
 }
 
 .overlay {
@@ -141,4 +157,9 @@ button {
 
 .blue.flash{
     background-color: rgb(125, 125, 225);
+}
+
+#leaderboard {
+    margin-left: 95px;
+    margin-right: 15px;
 }
