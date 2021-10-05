@@ -84,10 +84,9 @@ const GameApp = () => {
             <div className="tileContainer">
            {colors.map((colorValue, i) => <ColorTile key={i} color={colorValue} flash= {flashValue === colorValue} onClick={() => colorClick(colorValue)}/> )} 
             </div>
-           <div className="score">{gameState.playerScore}</div>
+           <h1 className="score">Score: {gameState.playerScore}</h1>
            {gameOver && 
             <div className="gameover">
-                <h1>Final Score: {gameState.playerScore}</h1>
                 <button id="leaderboard" onClick={() => redirectLeaderboard()}>View Leaderboard</button>
             </div>}
            {!gameState.appTurn && !gameState.playerTurn && 
