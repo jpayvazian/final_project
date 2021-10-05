@@ -1,10 +1,9 @@
 import React from "react";
 
-const ColorTile = () => {
+const ColorTile = props => {
 
     return (
-        <div className="ColorTile">
-        </div>
+        <div className={`colorTile ${props.color} ${props.flash ? "flash" : ""}`} onClick={props.onClick}></div>
     )
 }
 export default ColorTile

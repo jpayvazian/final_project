@@ -95,3 +95,50 @@ button {
 .back {
     margin-right: 50px;
 }
+
+.colorTile {
+    height: 200px;
+    width: 200px;
+  }
+  
+.tileContainer {
+    display: flex;
+    width: 400px;
+    flex-wrap: wrap;
+}
+
+.flash {
+    border: 3px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green.flash{
+    background-color: rgb(125, 255, 125);
+}
+
+.red.flash{
+    background-color: rgb(255, 125, 125);
+}
+.yellow.flash{
+    background-color: rgb(255, 255, 125);
+}
+
+.blue.flash{
+    background-color: rgb(125, 125, 225);
+}
