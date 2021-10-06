@@ -15,10 +15,20 @@ const GameApp = () => {
     const [flashValue, setFlashValue] = useState("")
     const [gameState, setGameState] = useState(initGame)
     const [gameOver, setGameOver] = useState(false)
+    const [delayTime, setDelayTime] = useState(505)
     const delay = ms => new Promise(res => setTimeout(res, ms))
+    const sounds = {
+        green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+        red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+        yellow: new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+        blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3")
+      }
 
     useEffect(() => {
       if (gameState.appTurn) {
+        if(delayTime > 100){
+            setDelayTime(delayTime - 15)
+        }
         let newColor = colors[Math.floor(Math.random() * 4)]
   
         const colorSequence = [...gameState.appColors]
@@ -29,6 +39,7 @@ const GameApp = () => {
 
     useEffect(() => {
         if (gameOver) {
+            setDelayTime(505)
             setGameState({...initGame, playerScore: gameState.playerScore} )
             //post user score, game played
         }
@@ -37,17 +48,18 @@ const GameApp = () => {
       useEffect(() => {
           if(gameState.appColors.length > 0){
             flashSequence()
+              
           }
       }, [gameState.appColors.length])
 
-
     const flashSequence = async () => {
-        await delay(1000)
+        await delay(delayTime*2)
         for (let i = 0; i < gameState.appColors.length; i++) {
+            sounds[gameState.appColors[i]].play()
             setFlashValue(gameState.appColors[i])
-            await delay(500)
+            await delay(delayTime)
             setFlashValue("")
-            await delay(500)
+            await delay(delayTime)
         }
         const colorSequence = [...gameState.appColors]
         setGameState({...gameState, appTurn: false, playerTurn: true, playerColors: colorSequence.reverse() })
@@ -58,6 +70,7 @@ const GameApp = () => {
             const playerColorsCopy = [...gameState.playerColors]
             const prevColor = playerColorsCopy.pop()
             setFlashValue(color)
+            sounds[color].play()
     
             if (color === prevColor) {
                 if (playerColorsCopy.length > 0) { 
@@ -70,7 +83,7 @@ const GameApp = () => {
             else { 
                 setGameOver(true)
             }
-            await delay(500)
+            await delay(delayTime)
             setFlashValue("")
         }
     }
