@@ -88,19 +88,15 @@ const GameApp = () => {
         }
     }
 
-    const redirectLeaderboard = () => {
-        //redirect to leaderboard page
-    }
-
     return (
         <div className="GameApp">
             <div className="tileContainer">
-           {colors.map((colorValue, i) => <ColorTile key={i} color={colorValue} flash= {flashValue === colorValue} onClick={() => colorClick(colorValue)}/> )} 
+           {colors.map((colorValue, i) => <ColorTile key={i} color={colorValue} flash= {flashValue === colorValue} cursor={gameState.playerTurn} onClick={() => colorClick(colorValue)}/> )} 
             </div>
            <h1 className="score">Score: {gameState.playerScore}</h1>
            {gameOver && 
             <div className="gameover">
-                <button id="leaderboard" onClick={() => redirectLeaderboard()}>View Leaderboard</button>
+                <button id="leaderboard" onClick={() => window.location.href='/leaderboard.html' }>View Leaderboard</button>
             </div>}
            {!gameState.appTurn && !gameState.playerTurn && 
            <button id="start" onClick={() => {
