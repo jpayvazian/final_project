@@ -47,6 +47,7 @@ td {
     padding: 10px 75px;
     font-family: 'Besley', sans-serif;
     background-color: #89DACD;
+    text-align: center;
 }
 
 button {
@@ -110,7 +111,8 @@ button {
 }
 
 .back {
-    margin-right: 50px;
+    margin-left: 680px;
+    margin-top: 10px;
 }
 
 .colorTile {

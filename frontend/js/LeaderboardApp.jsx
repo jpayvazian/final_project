@@ -31,6 +31,7 @@ const LeaderboardApp = (props) => {
                 </tr>
                 {entries.map((entry) => <Entry username={entry.username} gamesplayed={entry.gamesplayed} highscore={entry.highscore} />)}
             </table>
+            <button className="back" onClick={() => window.location.href='/room.html'}>Back</button>
         </div>
     )
 }
