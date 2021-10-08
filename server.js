@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser')
 const { MongoClient, ObjectId } = require('mongodb')
 const MongoClientService = require('./backend/services/mongodb-service.js')
 
-app.use( express.static( 'build' ) )
+app.use(express.static('build'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(session({ secret: process.env.cookieKey1, resave: false, saveUninitialized: false }))
@@ -32,30 +32,35 @@ app.use('/auth', passportRoutes)
 app.use('/api', authenticatedRoutes)
 app.use('/', publicRoutes)
 
-app.post('/score', (req,res) => {
+app.get("/leaderboard", (req, res) => {
+    MongoClientService.getLeaderboard()
+        .then(result => res.json(result))
+});
+
+app.post('/score', (req, res) => {
     MongoClientService.getGitHubUser(req.cookies.githubId)
-    .then((user) => {
-        if (user) {
-            if(!user.gamesplayed && !user.highscore){
-                user.gamesplayed = 1
-                user.highscore = req.body.playerScore
-            }
-            else{
-                user.gamesplayed += 1
-                if(req.body.playerScore > user.highscore){
+        .then((user) => {
+            if (user) {
+                if (!user.gamesplayed && !user.highscore) {
+                    user.gamesplayed = 1
                     user.highscore = req.body.playerScore
                 }
+                else {
+                    user.gamesplayed += 1
+                    if (req.body.playerScore > user.highscore) {
+                        user.highscore = req.body.playerScore
+                    }
+                }
+                MongoClientService.updateUser(user)
+                    .then((updatedUser) => {
+                        res.json(updatedUser)
+                    })
             }
-            MongoClientService.updateUser(user)
-            .then((updatedUser) => {
-                res.json(updatedUser)
-            })
-        } 
-        else {
-          res.writeHead( 404, "UID not found", {'Content-Type': 'text/plain' })
-          res.end()  
-        }
-      })
+            else {
+                res.writeHead(404, "UID not found", { 'Content-Type': 'text/plain' })
+                res.end()
+            }
+        })
 })
 
 // Start listening either on a defined port or 3000
