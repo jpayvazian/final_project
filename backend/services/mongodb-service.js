@@ -47,7 +47,9 @@ exports.createUser = async function(user){
   return new Promise ((resolve, reject) => {
     collectionUsers.insertOne({
       githubId: user.id,
-      username: user.username
+      username: user.username,
+      highscore: 0,
+      gamesplayed: 0
     })
     .then(data => {
       resolve(data)
@@ -56,7 +58,7 @@ exports.createUser = async function(user){
 }
 
 exports.getLeaderboard = async function(){
-    const db_queryresults = await collectionUsers.find({ }).toArray()
+    const db_queryresults = await collectionUsers.find({ }).sort({"highscore": -1}).toArray()
     return db_queryresults
 }
 /*

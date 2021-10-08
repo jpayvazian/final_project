@@ -49,7 +49,8 @@ table {
 
 th {
     font-family: 'Besley', sans-serif;
-    background-color: #77DBDA;
+    background-color: #404040;
+    color: white;
     padding: 10px 70px;
     font-weight: unset;
 }
@@ -57,7 +58,7 @@ th {
 td {
     padding: 10px 75px;
     font-family: 'Besley', sans-serif;
-    background-color: #89DACD;
+    background-color: #d6d6d6;
     text-align: center;
 }
 
@@ -131,27 +132,8 @@ button:hover{
     display: block;
 }
 
-.content {
-    height: 215px;
-    width: 500px;
-    background-color: #EEDCFC;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.contentText {
-    height: 40px;
-    width: 250px;
-    font-size: 20px;
-    border: none;
-    outline: none;
-    margin-bottom: 25px;
-}
-
 .back {
-    margin-left: 680px;
+    margin-left: 740px;
     margin-top: 10px;
 }
 

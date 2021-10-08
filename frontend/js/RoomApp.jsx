@@ -10,9 +10,14 @@ const RoomApp = () => {
         const ui_button_path_2 = "M0 0H200V200H0V0Z"
 
         React.useEffect( () =>{
+            const logout_button = document.querySelector('#logout_button')
+            logout_button.addEventListener('click', () =>{
+                window.location.href='/auth/logout';
+            })
+
             const leader_button = document.querySelector('#leader_button')
             leader_button.addEventListener('click', () =>{
-                window.location.href='/leaderboard.html';
+                window.location.href='/leaderboard';
             })
 
             const instruct_button = document.querySelector("#instructions_button")
@@ -77,7 +82,7 @@ const RoomApp = () => {
                     scale: 0
                 })
                 setTimeout( () => {
-                    window.location.href='/game.html'
+                    window.location.href='/game'
                 }, 750)
                 
             })
