@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const Entry = function (props) {
-    console.log("props: ", props)
-    console.log("username: ", props.username)
-    console.log("games: ",props.gamesplayed)
-    console.log("highscore: ", props.highscore)
     return (
         <tr>
             <td>{props.username}</td>
-            <td>{props.games}</td>
+            <td>{props.gamesplayed}</td>
             <td>{props.highscore}</td>
         </tr>
     )
@@ -33,7 +29,7 @@ const LeaderboardApp = (props) => {
                     <th scope="col"># of Games Played</th>
                     <th scope="col">High Score</th>
                 </tr>
-                {entries.map((entry) => <Entry username={entry.username} games={entry.games} highscore={entry.highscore} />)}
+                {entries.map((entry) => <Entry username={entry.username} gamesplayed={entry.gamesplayed} highscore={entry.highscore} />)}
             </table>
         </div>
     )
