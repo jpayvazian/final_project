@@ -1,5 +1,4 @@
 body {
-    background-image: url("https://wallpaperaccess.com/full/3720574.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -10,8 +9,20 @@ h1, h2 {
     text-align: center;
 }
 
-h1 {
-    color: white;
+h1{
+    background-image: url("https://www.figma.com/file/2CPH72ftEojrvODmpRhfk7/Untitled?node-id=12%3A31");
+}
+
+#blue_yellow{
+    position: absolute;
+    left: 0%;
+    top: 1%;
+}
+
+#red_green{
+    position: absolute;
+    right: 0%;
+    top: 1%;
 }
 
 h2 {
@@ -49,7 +60,31 @@ td {
     background-color: #89DACD;
 }
 
-button {
+button{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    border: none;
+    background-color: #8CDAFF;
+    border-radius: 50px;
+}
+
+button:hover{
+    background-color:#63B1FF;
+}
+
+#start{
+    position: absolute;
+    left: 48.5%;
+    top: 73%;
+}
+
+#Exit{
+    position: absolute;
+    left: 48.8%;
+    top: 78%;
+}
+
+ #gitBtn {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     border: none;
@@ -57,15 +92,12 @@ button {
     border-radius: 50px;
     width: 140px;
     height: 50px;
+    margin-top: 20px;
+    margin-left: 180px;
  }
 
- button:hover {
+ #gitBtn:hover{
     background-color:#63B1FF;
-}
-
- #gitBtn {
-     margin-top: 20px;
-     margin-left: 180px;
  }
 
 #loginForm {
@@ -81,8 +113,12 @@ button {
     height: 550px;
     width: 500px;
     background-color: #EEDCFC;
+    border-radius: 5%;
     margin-left: auto;
     margin-right: auto;
+    position: absolute;
+    left: -40%;
+    top: 70%;
 }
 
 .overlay {
@@ -121,6 +157,18 @@ button {
     display: flex;
     width: 400px;
     flex-wrap: wrap;
+    position: absolute;
+    left: 37%;
+    top: 13%;
+}
+
+.buttonContainer {
+    display: flex;
+    width: 542px;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 32.5%;
+    top: 13%;
 }
 
 .flash {
@@ -130,18 +178,18 @@ button {
 }
 
 .green {
-    background-color: green;
+    background-color: #45963E;
 }
 
 .red {
-    background-color: red;
+    background-color: #DA1D1D;
 }
-.yellow {
-    background-color: yellow;
+.yellow { 
+    background-color: #DAC71D;
 }
 
 .blue {
-    background-color: blue;
+    background-color: #1D52DA;
 }
 
 .green.flash{
@@ -157,6 +205,16 @@ button {
 
 .blue.flash{
     background-color: rgb(125, 125, 225);
+}
+
+.play_text{
+    transform-origin: 50%, 50%;
+    transform-box: fill-box;
+}
+
+.score{
+    position: absolute;
+    left: -30%;
 }
 
 #leaderboard {

@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from "react";
+import anime from 'animejs/lib/anime.es.js';
 import ColorTile from "./ColorTile"
 
-const GameApp = () => {
 
-    const colors = ["green", "red", "yellow", "blue"]
+const GameApp = () => {
+    React.useEffect( () =>{
+        anime({
+            targets:'.score',
+            translateX: 1170
+        })
+    })
+    const colors = ["red", "yellow", "blue", "green"]
     const initGame = {
         appTurn: false,
         appColors: [],
@@ -88,25 +95,27 @@ const GameApp = () => {
         }
     }
 
-    const redirectLeaderboard = () => {
-        //redirect to leaderboard page
-    }
-
     return (
         <div className="GameApp">
             <div className="tileContainer">
            {colors.map((colorValue, i) => <ColorTile key={i} color={colorValue} flash= {flashValue === colorValue} onClick={() => colorClick(colorValue)}/> )} 
             </div>
+            <svg id='blue_yellow' width="170" height="85" viewBox="0 0 170 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="85" height="85" fill="#1D52DA"/>
+                <rect x="85" width="85" height="85" fill="#DAC71D"/>
+            </svg>
+            <svg id='red_green' width="170" height="85" viewBox="0 0 170 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="85" width="85" height="85" fill="#DA1D1D"/>
+                <rect width="85" height="85" fill="#45963E"/>
+            </svg>
            <h1 className="score">Score: {gameState.playerScore}</h1>
-           {gameOver && 
-            <div className="gameover">
-                <button id="leaderboard" onClick={() => redirectLeaderboard()}>View Leaderboard</button>
-            </div>}
            {!gameState.appTurn && !gameState.playerTurn && 
            <button id="start" onClick={() => {
                setGameOver(false)
                setGameState({...initGame, appTurn:true})}
            }>{gameOver ? "Restart" : "Start"}</button>}
+           <button id="Exit" onClick={() => window.location.href='/room.html'}>Exit</button>
+           
         </div>
     )
   }

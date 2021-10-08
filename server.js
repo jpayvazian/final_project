@@ -15,7 +15,7 @@ const MongoClientService = require('./backend/services/mongodb-service.js')
 app.use( express.static( 'build' ) )
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(session({ secret: process.env.cookieKey1, resave: false, saveUninitialized: false }))
+app.use(session({ secret: process.env.githubClientSecret, resave: false, saveUninitialized: false }))
 
 app.use(passport.initialize());
 app.use(passport.session());
