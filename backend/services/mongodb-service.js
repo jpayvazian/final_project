@@ -3,21 +3,21 @@ const uri = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@${process
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 let collectionUsers= null
-let collectionRooms = null
+// let collectionRooms = null
 
 const connectDB = async function() {
     await client.connect()
     console.log('Successfully connected to MemoryDB')
     collectionUsers = client.db("MemoryDB").collection("Users");
-    collectionRooms = client.db("MemoryDB").collection("Rooms");
+    // collectionRooms = client.db("MemoryDB").collection("Rooms");
 }
 
 connectDB()
 
-exports.getUser = async function(id){
-    const db_queryresults = await collectionUsers.findOne({ _id : ObjectId(id) })
-    return db_queryresults
-}
+// exports.getUser = async function(id){
+//     const db_queryresults = await collectionUsers.findOne({ _id : ObjectId(id) })
+//     return db_queryresults
+// }
 
 exports.getGitHubUser = async function(id) {
   return new Promise((resolve, reject) => {
@@ -33,11 +33,11 @@ exports.getGitHubUser = async function(id) {
   })
 }
 
-exports.updateUser = async function(data){
-    const db_queryresults = await collectionUsers.updateOne({ _id : ObjectId(data.id)}, {
+exports.updateUser = async function(user){
+    const db_queryresults = await collectionUsers.updateOne({ githubId : user.githubId}, {
       $set: {
-        highscore: data.highscore,
-        gamesplayed: data.gamesplayed
+        highscore: user.highscore,
+        gamesplayed: user.gamesplayed
       }  
     })
     return db_queryresults
@@ -59,7 +59,7 @@ exports.getLeaderboard = async function(){
     const db_queryresults = await collectionUsers.find({ }).toArray()
     return db_queryresults
 }
-
+/*
 exports.createRoom = async function(key){
     const db_queryresults = await collectionRooms.insertOne({ roomkey: key, players:[] }).toArray()
     return db_queryresults
@@ -89,4 +89,5 @@ exports.deleteRoom = async function(data){
     const db_queryresults = await collectionRooms.deleteOne({ _id: ObjectId(data.id) }).toArray()
     return db_queryresults
 }
+*/
 

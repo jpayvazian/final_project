@@ -48,7 +48,19 @@ const GameApp = () => {
         if (gameOver) {
             setDelayTime(505)
             setGameState({...initGame, playerScore: gameState.playerScore} )
-            //post user score, game played
+          
+            //POST user score to update DB leaderboard
+            const json = { playerScore: gameState.playerScore }
+
+            fetch( '/score', { 
+                method: 'post',
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify( json )
+            })
+            .then( response => response.text())
+            .then ( (text) => {
+                console.log(text)
+            })
         }
       }, [gameOver])
 
@@ -98,7 +110,7 @@ const GameApp = () => {
     return (
         <div className="GameApp">
             <div className="tileContainer">
-           {colors.map((colorValue, i) => <ColorTile key={i} color={colorValue} flash= {flashValue === colorValue} onClick={() => colorClick(colorValue)}/> )} 
+           {colors.map((colorValue, i) => <ColorTile key={i} color={colorValue} flash= {flashValue === colorValue} cursor={gameState.playerTurn} onClick={() => colorClick(colorValue)}/> )} 
             </div>
             <svg id='blue_yellow' width="170" height="85" viewBox="0 0 170 85" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="85" height="85" fill="#1D52DA"/>

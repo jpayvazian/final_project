@@ -3,6 +3,7 @@ module.exports = (req, res, next) => {
     console.log(`User ${ip} is logged in: ${req.isAuthenticated()}`)
     if (req.isAuthenticated()) {
         console.log(`User ${ip}: username: ${req.user.username}`)
+        res.cookie('githubId', `${req.user.githubId}`)
         return next();
     }
     res.redirect('/')

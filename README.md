@@ -1,20 +1,38 @@
-<h1>CS4241 - Webware Final Project</h1>
-Group 11 <br>
+# CS4241 - Webware Final Project
+Group 11  
 Names: Jack Ayvazian, Jack Campanale, Federico Galbiati, Winnie Ly, Vansh Patel
 
-<h2>Memory Game (similar to Simon says):</h2>
+## Memory Game
+[link to project]
+[link to video]
 
-Players would join a lobby (represented as an id) in which they are given a sequence of color tiles and all the players need to repeat the sequence. The sequences will get longer by 1 each every round (and faster) as the game progresses. The game will end when there is only one player left in the game.
+### Description
+We created a memory game inspired by Simon, where a user has to repeat a given flashing sequence of four colored tiles (with sound effects). The sequence grows by one and speeds up slighly each round, making it more difficult as the game progresses.  
+Our landing page first prompts the user to authenticate via Github, and afterwards, they are redirected to the instructions page. From there, the user can start the game or view the leaderboard, which displays the highscores and gamesplayed of each user in the database. [...]
 
-<h3>Technologies:</h3>
-
-* Express + Node.js  
-
-* Passport.js: Allow user to login using a GitHub account  
-
-* React for frontend
-
+### Technologies
+#### MERN Stack
 * MongoDB  
-  * User information including username and high scores  
-  * Leaderboard page to display high scores  
-  * Lobbies for multiplayer: generate a room key for other players to join from that key
+  * Stores user githubUsername and id 
+  * Tracks highscore and games played for each user  
+* Express (Server framework for Node.js)
+* React
+  * Front end follows a functional component structure with use of .jsx
+  * App component broken down by page, with subcomponents such as the game tiles
+* Node.js (JS runtime environment)
+
+#### Other:
+* Passport.js: Authenticates user with GitHub account  
+* Anime.js: Library used for custom CSS styling and animations
+
+### Challenges
+
+* Creating and debugging the main game logic with React: While React hooks such as useState and useEffect were very useful for developing the game, there were a lot of different changing states to keep track of and modify. As setting state is asynchronous, it was difficult to track the changes in state while line-by-line debugging, since the page is not guaranteed to re-render on the line you expect it to.
+* [...]
+
+### Group Responsibilities
+* Jack Ayvazian: Developed the main game logic and React frontend  
+* Jack Campanale: User Interface for game with Anime.js styling and animations  
+* Federico Galbiati: Implemented Github authentication with Passport.js  
+* Winnie Ly: Structured layout of html pages and CSS  
+* Vansh Patel: Leaderboard with sorted player highscores  
