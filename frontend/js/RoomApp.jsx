@@ -175,7 +175,7 @@ const RoomApp = () => {
                 <h2>Instructions</h2>
                 <p>
                     The game is just like Simon where there are four colored buttons: red, yellow, green, and blue and it would
-                    play a sequence of patterns that the player(s) have to re-create the pattern to go to the next round. After
+                    play a sequence of patterns that the player has to re-create the pattern to go to the next round. After
                     completing each round, the difficulty will increase as both the sequences would get longer and the speed of 
                     displaying those sequences will increase. 
                 </p>
@@ -189,7 +189,6 @@ const RoomApp = () => {
                     To play the game, press the "Play" button which will redirect you to the game page where you will need
                     to input the correct sequence of colored tiles that have occurred in that round.
                 </p>
-
             </div>
         }
         </div>
