@@ -7,7 +7,7 @@ const GameApp = () => {
     React.useEffect( () =>{
         anime({
             targets:'.score',
-            translateX: 1170
+            left: '50%'
         })
     })
     const colors = ["red", "yellow", "blue", "green"]
@@ -111,22 +111,75 @@ const GameApp = () => {
         <div className="GameApp">
             <div className="tileContainer">
            {colors.map((colorValue, i) => <ColorTile key={i} color={colorValue} flash= {flashValue === colorValue} cursor={gameState.playerTurn} onClick={() => colorClick(colorValue)}/> )} 
-            </div>
-            <svg id='blue_yellow' width="170" height="85" viewBox="0 0 170 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="85" height="85" fill="#1D52DA"/>
-                <rect x="85" width="85" height="85" fill="#DAC71D"/>
-            </svg>
-            <svg id='red_green' width="170" height="85" viewBox="0 0 170 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="85" width="85" height="85" fill="#DA1D1D"/>
-                <rect width="85" height="85" fill="#45963E"/>
-            </svg>
-           <h1 className="score">Score: {gameState.playerScore}</h1>
            {!gameState.appTurn && !gameState.playerTurn && 
            <button id="start" onClick={() => {
                setGameOver(false)
                setGameState({...initGame, appTurn:true})}
            }>{gameOver ? "Restart" : "Start"}</button>}
            <button id="Exit" onClick={() => window.location.href='/room.html'}>Exit</button>
+            </div>
+            <svg id='blue_yellow' width="170" height="1190" viewBox="0 0 170 1190" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="85" width="85" height="85" fill="#DA1D1D"/>
+                <rect width="85" height="85" fill="#45963E"/>
+                <rect y="85" width="85" height="85" fill="#1D52DA"/>
+                <rect y="255" width="85" height="85" fill="#1D52DA"/>
+                <rect y="425" width="85" height="85" fill="#1D52DA"/>
+                <rect y="595" width="85" height="85" fill="#1D52DA"/>
+                <rect y="765" width="85" height="85" fill="#1D52DA"/>
+                <rect y="935" width="85" height="85" fill="#1D52DA"/>
+                <rect y="1105" width="85" height="85" fill="#1D52DA"/>
+                <rect x="85" y="85" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="255" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="425" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="595" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="765" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="935" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="1105" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="170" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="340" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="510" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="680" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="850" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="1020" width="85" height="85" fill="#DA1D1D"/>
+                <rect y="170" width="85" height="85" fill="#45963E"/>
+                <rect y="340" width="85" height="85" fill="#45963E"/>
+                <rect y="510" width="85" height="85" fill="#45963E"/>
+                <rect y="680" width="85" height="85" fill="#45963E"/>
+                <rect y="850" width="85" height="85" fill="#45963E"/>
+                <rect y="1020" width="85" height="85" fill="#45963E"/>
+            </svg>
+            <svg id='red_green' width="170" height="1190" viewBox="0 0 170 1190" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="85" width="85" height="85" fill="#DA1D1D"/>
+                <rect width="85" height="85" fill="#45963E"/>
+                <rect y="85" width="85" height="85" fill="#1D52DA"/>
+                <rect y="255" width="85" height="85" fill="#1D52DA"/>
+                <rect y="425" width="85" height="85" fill="#1D52DA"/>
+                <rect y="595" width="85" height="85" fill="#1D52DA"/>
+                <rect y="765" width="85" height="85" fill="#1D52DA"/>
+                <rect y="935" width="85" height="85" fill="#1D52DA"/>
+                <rect y="1105" width="85" height="85" fill="#1D52DA"/>
+                <rect x="85" y="85" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="255" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="425" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="595" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="765" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="935" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="1105" width="85" height="85" fill="#DAC71D"/>
+                <rect x="85" y="170" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="340" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="510" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="680" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="850" width="85" height="85" fill="#DA1D1D"/>
+                <rect x="85" y="1020" width="85" height="85" fill="#DA1D1D"/>
+                <rect y="170" width="85" height="85" fill="#45963E"/>
+                <rect y="340" width="85" height="85" fill="#45963E"/>
+                <rect y="510" width="85" height="85" fill="#45963E"/>
+                <rect y="680" width="85" height="85" fill="#45963E"/>
+                <rect y="850" width="85" height="85" fill="#45963E"/>
+                <rect y="1020" width="85" height="85" fill="#45963E"/>
+            </svg>
+           <h1 className="score">Score: {gameState.playerScore}</h1>
+
            
         </div>
     )

@@ -16,13 +16,13 @@ h1{
 #blue_yellow{
     position: absolute;
     left: 0%;
-    top: 1%;
+    top: 0%;
 }
 
 #red_green{
     position: absolute;
     right: 0%;
-    top: 1%;
+    top: 0%;
 }
 
 h2 {
@@ -63,9 +63,10 @@ td {
 
 button{
     font-family: 'Raleway', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
+    color: white;
     border: none;
-    background-color: #8CDAFF;
+    background-color: #404040;
     border-radius: 50px;
 }
 
@@ -75,22 +76,23 @@ button:hover{
 }
 
 #start{
-    position: absolute;
-    left: 48.5%;
-    top: 73%;
+    margin: 20px;
+    position: relative;
+    left: 28%;
 }
 
 #Exit{
-    position: absolute;
-    left: 48.8%;
-    top: 78%;
+    margin: 20px;
+    position: relative;
+    left: 28%;
 }
 
  #gitBtn {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
+    color: white;
     border: none;
-    background-color: #8CDAFF;
+    background-color: #404040;
     border-radius: 50px;
     width: 140px;
     height: 50px;
@@ -105,7 +107,8 @@ button:hover{
 #loginForm {
     height: 200px;
     width: 500px;
-    background-color: #EEDCFC;
+    background-color: #d6d6d6;
+    border-radius: 3%;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
@@ -114,13 +117,14 @@ button:hover{
 #instructionOverlay {
     height: 550px;
     width: 500px;
-    background-color: #EEDCFC;
+    background-color: #d6d6d6;
     border-radius: 5%;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
     left: -40%;
-    top: 70%;
+    top: 80%;
+    transform: translate(-50%, 0%)
 }
 
 .overlay {
@@ -165,8 +169,9 @@ button:hover{
     width: 400px;
     flex-wrap: wrap;
     position: absolute;
-    left: 37%;
-    top: 13%;
+    left: 50%;
+    top: 23%;
+    transform: translate(-50%, -10%);
 }
 
 .buttonContainer {
@@ -174,8 +179,9 @@ button:hover{
     width: 542px;
     flex-wrap: wrap;
     position: absolute;
-    left: 32.5%;
-    top: 13%;
+    left: 50%;
+    top: 23%;
+    transform: translate(-50%, -10%);
 }
 
 .flash {
@@ -221,7 +227,8 @@ button:hover{
 
 .score{
     position: absolute;
-    left: -30%;
+    left: -50%;
+    transform: translate(-50%)
 }
 
 #leaderboard {
