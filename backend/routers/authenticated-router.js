@@ -1,39 +1,43 @@
+// Require database services
+const { MongoClient, ObjectId } = require('mongodb')
+const MongoClientService = require('../services/mongodb-service.js')
+
 const express = require('express')
 const router = express.Router()
 
 const passportAuthMiddleware = require('../services/passport-auth')
 
-router.put('/room', passportAuthMiddleware, (req, res) => {
-    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
-    res.end("Missing implementation")
-})
-router.delete('/room', passportAuthMiddleware, (req, res) => {
-    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
-    res.end("Missing implementation")
-})
-router.post('/room', passportAuthMiddleware, (req, res) => {
-    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
-    res.end("Missing implementation")
-})
-router.get('/room', passportAuthMiddleware, (req, res) => {
-    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
-    res.end("Missing implementation")
-})
 
-router.get('/leaderboard', passportAuthMiddleware, (req, res) => {
-    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
-    res.end("Missing implementation")
-})
+router.get("/leaderboard", passportAuthMiddleware, (req, res) => {
+    MongoClientService.getLeaderboard()
+        .then(result => res.json(result))
+});
 
-router.get('/user', passportAuthMiddleware, (req, res) => {
-    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
-    res.end("Missing implementation")
+router.post('/score', passportAuthMiddleware, (req, res) => {
+    MongoClientService.getGitHubUser(req.cookies.githubId)
+        .then((user) => {
+            if (user) {
+                if (!user.gamesplayed && !user.highscore) {
+                    user.gamesplayed = 1
+                    user.highscore = req.body.playerScore
+                }
+                else {
+                    user.gamesplayed += 1
+                    if (req.body.playerScore > user.highscore) {
+                        user.highscore = req.body.playerScore
+                    }
+                }
+                MongoClientService.updateUser(user)
+                    .then((updatedUser) => {
+                        res.json(updatedUser)
+                    })
+            }
+            else {
+                res.writeHead(404, "UID not found", { 'Content-Type': 'text/plain' })
+                res.end()
+            }
+        })
 })
-router.post('/user', passportAuthMiddleware, (req, res) => {
-    res.writeHeader( 400, { 'Content-Type': 'text/plain' })
-    res.end("Missing implementation")
-})
-
 
 // Export the Router for use in server.js
 module.exports = router
