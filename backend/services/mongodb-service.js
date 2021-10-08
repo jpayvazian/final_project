@@ -58,7 +58,7 @@ exports.createUser = async function(user){
 }
 
 exports.getLeaderboard = async function(){
-    const db_queryresults = await collectionUsers.find({ }).toArray()
+    const db_queryresults = await collectionUsers.find({ }).sort({"highscore": -1}).toArray()
     return db_queryresults
 }
 /*
