@@ -17,7 +17,7 @@ const LeaderboardApp = (props) => {
     useEffect(() => {
         fetch('/api/leaderboard')
             .then(response => response.json())
-            .then(jsonArray => setEntryState(jsonArray))
+            .then(jsonArray => setEntryState(jsonArray.filter(entry => entry.githubId != null)))
     }, [])
 
     return (
@@ -89,7 +89,7 @@ const LeaderboardApp = (props) => {
                     <th scope="col"># of Games Played</th>
                     <th scope="col">High Score</th>
                 </tr>
-                {entries.map((entry) => <Entry username={entry.username} gamesplayed={entry.gamesplayed} highscore={entry.highscore} />)}
+                {entries.map((entry) => <Entry username={entry.username} gamesplayed={entry.gamesplayed} highscore={entry.highscore} />)}  
             </table>
             <button className="back" onClick={() => window.location.href='/room.html'}>Back</button>
         </div>

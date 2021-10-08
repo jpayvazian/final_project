@@ -17,15 +17,9 @@ router.post('/score', passportAuthMiddleware, (req, res) => {
     MongoClientService.getGitHubUser(req.cookies.githubId)
         .then((user) => {
             if (user) {
-                if (!user.gamesplayed && !user.highscore) {
-                    user.gamesplayed = 1
+                user.gamesplayed += 1
+                if (req.body.playerScore > user.highscore) {
                     user.highscore = req.body.playerScore
-                }
-                else {
-                    user.gamesplayed += 1
-                    if (req.body.playerScore > user.highscore) {
-                        user.highscore = req.body.playerScore
-                    }
                 }
                 MongoClientService.updateUser(user)
                     .then((updatedUser) => {
