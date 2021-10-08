@@ -52,7 +52,7 @@ const GameApp = () => {
             //POST user score to update DB leaderboard
             const json = { playerScore: gameState.playerScore }
 
-            fetch( '/score', { 
+            fetch( '/api/score', { 
                 method: 'post',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify( json )

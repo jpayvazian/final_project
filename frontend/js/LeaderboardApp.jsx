@@ -15,7 +15,7 @@ const LeaderboardApp = (props) => {
     const [entries, setEntryState] = useState([])
 
     useEffect(() => {
-        fetch('/leaderboard')
+        fetch('/api/leaderboard')
             .then(response => response.json())
             .then(jsonArray => setEntryState(jsonArray))
     }, [])

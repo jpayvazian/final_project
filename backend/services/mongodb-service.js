@@ -47,7 +47,9 @@ exports.createUser = async function(user){
   return new Promise ((resolve, reject) => {
     collectionUsers.insertOne({
       githubId: user.id,
-      username: user.username
+      username: user.username,
+      highscore: 0,
+      gamesplayed: 0
     })
     .then(data => {
       resolve(data)
