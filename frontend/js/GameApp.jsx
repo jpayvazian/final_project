@@ -41,7 +41,19 @@ const GameApp = () => {
         if (gameOver) {
             setDelayTime(505)
             setGameState({...initGame, playerScore: gameState.playerScore} )
-            //post user score, game played
+          
+            //POST user score to update DB leaderboard
+            const json = { playerScore: gameState.playerScore }
+
+            fetch( '/score', { 
+                method: 'post',
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify( json )
+            })
+            .then( response => response.text())
+            .then ( (text) => {
+                console.log(text)
+            })
         }
       }, [gameOver])
 
