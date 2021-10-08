@@ -45,6 +45,8 @@ table {
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+    filter: drop-shadow(0 0 0.75em #727272);
+
 }
 
 th {
@@ -216,4 +218,90 @@ button:hover{
 #leaderboard {
     margin-left: 95px;
     margin-right: 15px;
+}
+
+#play_button{
+    filter: drop-shadow(0 0 0.6em #DA1D1D);
+    transition: all 0.3s ease-in-out;
+}
+
+#play_button:after{
+    opacity:0;
+    filter: drop-shadow(-1mm -1mm 1em #DA1D1D);
+    transform: scale(1.01, 1.01);
+    transition: all 0.3s ease-in-out;
+}
+
+#play_button:hover{
+    transform: scale(1.01, 1.01);
+    filter: drop-shadow(-1mm -1mm 1em #DA1D1D);
+}
+
+#play_button::after{
+    opacity: 1;
+}
+
+#leader_button{
+    filter: drop-shadow(0 0 0.6em #DAC71D);
+    transition: all 0.3s ease-in-out;
+}
+
+#leader_button:after{
+    opacity:0;
+    filter: drop-shadow(-1mm -1mm 1em #DAC71D);
+    transform: scale(1.01, 1.01);
+    transition: all 0.3s ease-in-out;
+}
+
+#leader_button:hover{
+    transform: scale(1.01, 1.01);
+    filter: drop-shadow(-1mm -1mm 1em #DAC71D);
+}
+
+#leader_button::after{
+    opacity: 1;
+}
+
+
+#logout_button{
+    filter: drop-shadow(0 0 0.6em #1D52DA);
+    transition: all 0.3s ease-in-out;
+}
+
+#logout_button:after{
+    opacity:0;
+    filter: drop-shadow(-1mm -1mm 1em #1D52DA);
+    transform: scale(1.01, 1.01);
+    transition: all 0.3s ease-in-out;
+}
+
+#logout_button:hover{
+    transform: scale(1.01, 1.01);
+    filter: drop-shadow(-1mm -1mm 1em #1D52DA);
+}
+
+#logout_button::after{
+    opacity: 1;
+}
+
+
+#instructions_button{
+    filter: drop-shadow(0 0 0.6em #45963E);
+    transition: all 0.3s ease-in-out;
+}
+
+#instructions_button:after{
+    opacity:0;
+    filter: drop-shadow(-1mm -1mm 1em #45963E);
+    transform: scale(1.01, 1.01);
+    transition: all 0.3s ease-in-out;
+}
+
+#instructions_button:hover{
+    transform: scale(1.01, 1.01);
+    filter: drop-shadow(-1mm -1mm 1em #45963E);
+}
+
+#instructions_button::after{
+    opacity: 1;
 }
