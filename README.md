@@ -3,8 +3,8 @@ Group 11
 Names: Jack Ayvazian, Jack Campanale, Federico Galbiati, Winnie Ly, Vansh Patel
 
 ## Memory Game
-[link to project]
-[link to video]
+**Project:**https://team-11.herokuapp.com/room
+**Video:**https://youtu.be/Vy2hAQ_6B7Y
 
 ### Description
 We created a memory game inspired by Simon, where a user has to repeat a given flashing sequence of four colored tiles (with sound effects). The sequence grows by one and speeds up slighly each round, making it more difficult as the game progresses.  
@@ -23,7 +23,8 @@ Our landing page first prompts the user to authenticate via Github, and afterwar
 
 #### Other:
 * Passport.js: Authenticates user with GitHub account  
-* Anime.js: Library used for custom CSS styling and animations
+* Anime.js: Library used for custom animations
+* Figma: Website used to make custom SVGs used in site
 
 ### Challenges
 
