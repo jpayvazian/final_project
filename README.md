@@ -36,4 +36,4 @@ Our landing page first prompts the user to authenticate via Github, and afterwar
 * Jack Campanale: User Interface for game with Anime.js styling and animations  
 * Federico Galbiati: Implemented Github authentication with Passport.js  
 * Winnie Ly: Structured layout of HTML pages and CSS along with displaying Leaderboard data 
-* Vansh Patel: Sorted player highscores  
+* Vansh Patel: Sorted player highscores and CSS layout for button hovers  
