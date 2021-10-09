@@ -3,7 +3,7 @@
 Jack Ayvazian, Jack Campanale, Federico Galbiati, Winnie Ly, Vansh Patel
 
 ## Memory Game
-**Project:** https://team-11.herokuapp.com/room
+**Project:** https://team-11.herokuapp.com/
 <br> <br>
 **Video:** https://youtu.be/Vy2hAQ_6B7Y
 
