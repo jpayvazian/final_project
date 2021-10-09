@@ -3,8 +3,8 @@ Group 11
 Names: Jack Ayvazian, Jack Campanale, Federico Galbiati, Winnie Ly, Vansh Patel
 
 ## Memory Game
-**Project:**https://team-11.herokuapp.com/room
-**Video:**https://youtu.be/Vy2hAQ_6B7Y
+Project: https://team-11.herokuapp.com/room
+Video: https://youtu.be/Vy2hAQ_6B7Y
 
 ### Description
 We created a memory game inspired by Simon, where a user has to repeat a given flashing sequence of four colored tiles (with sound effects). The sequence grows by one and speeds up slighly each round, making it more difficult as the game progresses.  
