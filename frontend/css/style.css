@@ -142,15 +142,31 @@ button:hover{
 .colorTile {
     height: 200px;
     width: 200px;
+    border: 10px solid #404040
   }
 
 .colorTile.clickable {
     cursor: pointer;
 }
+.colorTile.red {
+    border-radius: 100% 0 0 0;
+}
+
+.colorTile.yellow {
+    border-radius: 0 100% 0 0;
+}
+
+.colorTile.green {
+    border-radius: 0 0 100% 0;
+}
+
+.colorTile.blue {
+    border-radius: 0 0 0 100%;
+}
   
 .tileContainer {
     display: flex;
-    width: 400px;
+    width: 440px;
     flex-wrap: wrap;
     position: absolute;
     left: 50%;
@@ -169,9 +185,7 @@ button:hover{
 }
 
 .flash {
-    border: 3px solid white;
-    border-radius: 5px;
-    box-sizing: border-box;
+    border: 10px solid #d6d6d6;
 }
 
 .green {
